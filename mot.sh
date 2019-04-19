@@ -42,9 +42,9 @@ printf "\n"
 printf "Interface [IP Address] [MAC Address]\n"
 for x in $INTERFACE
 do
-  MAC=$(ip ad show dev $x | grep link/ether |awk '{print $2}')
-  IP=$(ip ad show dev $x | grep -v inet6 | grep inet|awk '{print $2}')
-  printf $x" ["$IP"] ["$MAC"]\n"
+  MAC=$(ip ad show dev $x | grep link/ether | awk '{print $2}')
+  IP=$(ip ad show dev $x | grep inet | awk '{print $2}')
+  printf $x "["$IP"] ["$MAC"]\n"
 done
 echo
 echo
