@@ -40,12 +40,11 @@ printf "Local Users:\t%s\t\t\tWhoami:\t\t\t%s\n" $users $USER
 printf "Processes:\t%s\t\t\t\n" $processes
 printf "\n"
 printf "Interface [IP Address] [MAC Address]\n"
-
 for x in $INTERFACE
 do
-  MAC=$(ip ad show dev $x |grep link/ether |awk '{print $2}')
-  IP=$(ip ad show dev $x |grep -v inet6 | grep inet|awk '{print $2}')
-  printf  $x" ["$IP"] ["$MAC"]\n"
+  MAC=$(ip ad show dev $x | grep link/ether |awk '{print $2}')
+  IP=$(ip ad show dev $x | grep -v inet6 | grep inet|awk '{print $2}')
+  printf $x" ["$IP"] ["$MAC"]\n"
 done
 echo
 echo
